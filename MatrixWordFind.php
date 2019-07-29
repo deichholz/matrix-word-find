@@ -17,7 +17,7 @@ try {
     $parserFactory = new MatrixWordFind\Matrix\MatrixParserFactory($config);
     $parser = $parserFactory->create();
 
-    var_dump($config, $parser);
+    var_dump(file_get_contents('./matrix_data.txt'), $parser->getRowCollStrings());
     printf("\nProcess completed successfully.\n\n");
 } catch (Throwable $e) {
     printf("\nException: \n%s. \nProcess did not complete successfully.\n\n", $e->getMessage());
