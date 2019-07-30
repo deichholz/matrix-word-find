@@ -26,8 +26,8 @@ class StringParser
         $foundWords = [];
         // get raw strings from matrix (horizontal and vertical)
         $possibleWordRoots = $matrix->getRowCollStrings();
-        // process each string to get valid words.
         foreach ($possibleWordRoots as $possibleWordRoot) {
+            // process each string forwards and backwards to get valid words.
             $foundWords = array_merge(
                 $foundWords,
                 $this->getWordsLeftTrim($possibleWordRoot),
@@ -65,7 +65,6 @@ class StringParser
     {
         // truncate excessively long strings
         $string = substr($string, 0, $this->maxWordLength);
-        $possibleWords = [];
 
         while ($this->isWordLike($string)) {
             if ($this->getWordChecker()->isValidWord($string)) {
@@ -99,7 +98,7 @@ class StringParser
 
     /**
      * @param mixed $wordChecker
-     * @return StringParserFactory
+     * @return StringParser
      */
     public function setWordChecker($wordChecker)
     {

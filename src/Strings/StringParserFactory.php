@@ -4,7 +4,6 @@
 namespace MatrixWordFind\Strings;
 
 use MatrixWordFind\Spelling\WordCheckInterface;
-use MatrixWordFind\Strings\StringParser;
 
 class StringParserFactory
 {

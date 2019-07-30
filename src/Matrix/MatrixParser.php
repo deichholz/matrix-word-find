@@ -57,6 +57,7 @@ class MatrixParser
 
     /**
      * Converts all horizontal rows in matrix to strings
+     * @param $matrix
      * @return string[]
      */
     private function getHorizontalStrings($matrix): array
@@ -66,6 +67,7 @@ class MatrixParser
 
     /**
      * Converts all horizontal rows in matrix to strings
+     * @param array $original
      * @return string[]
      */
     private function transposeArray(array $original): array
