@@ -22,7 +22,7 @@ class SimpleWordCheckFactory
      */
     public function create(): WordCheckInterface
     {
-        $dict = $this->loadDictionary();
+        $dict = $this->getDictionary();
 
         $simpleSpellCheck = new SimpleWordCheck();
         $simpleSpellCheck->setWordList($dict);
@@ -64,10 +64,11 @@ class SimpleWordCheckFactory
      */
     private function getDictionary()
     {
-        $dictRaw = $this->loadDictionary();
+        $dict = $this->loadDictionary();
 
-        $dictRaw = strtoupper($dictRaw);
-        $dict = explode("\n", $dictRaw);
+        $dict = str_replace("\r\n", "\n", $dict);
+        $dict = strtoupper($dict);
+        $dict = explode("\n", $dict);
 
         return $dict;
     }

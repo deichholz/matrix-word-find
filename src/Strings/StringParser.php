@@ -35,6 +35,7 @@ class StringParser
             );
         }
 
+        $foundWords = array_filter($foundWords);
         return $foundWords;
     }
 
