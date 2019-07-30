@@ -76,8 +76,9 @@ class App
         echo $matrix->getMatrixAsStrings();
 
         printf("\n\n******* The Words ********.\n\n");
+        $ct = 0;
         foreach ($words as $row => $word) {
-            echo $row + 1 . " $word\n";
+            echo ++$ct . " $word\n";
         }
         printf("\n\nProcess completed successfully.\n\n");
     }
