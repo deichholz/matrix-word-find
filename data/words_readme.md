@@ -1,0 +1,1 @@
+Word list is sourced from "Sample word list from Duke CS department" as seen on https://en.wikipedia.org/wiki/Words_(Unix).
