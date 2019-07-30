@@ -50,8 +50,13 @@ class StringParser
         $length = strlen($string);
         for ($start = 0; $start < $length; $start++) {
             $possible = substr($string, $start);
-            //todo: convert to simple array append
-            $foundWords[] = $this->getWordsRightTrim($possible);
+            // remove chars from right side to identify word.
+            $validWord = $this->getWordsRightTrim($possible);
+            if (!empty($validWord)) {
+                // move forward to end of word to skip sub-words
+                $start += strlen($validWord) - 2;
+                $foundWords[] = $validWord;
+            }
         }
 
         return $foundWords;
