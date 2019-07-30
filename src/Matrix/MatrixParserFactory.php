@@ -46,7 +46,7 @@ class MatrixParserFactory
     private function getPath()
     {
         if (!isset($this->path)) {
-            $this->path = (string)$this->config->getParam('matrix-data-file', './matrix_data.txt');
+            $this->path = (string)$this->config->getParam('matrix-data-file', './data/matrix.txt');
         }
         return $this->path;
     }
