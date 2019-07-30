@@ -7,6 +7,9 @@ use Exception,
 
 class MatrixParserFactory
 {
+    /**
+     * @var string $path
+     */
     private $path;
 
     /**
@@ -16,10 +19,12 @@ class MatrixParserFactory
 
     /**
      * @param ConfigInterface $config
+     * @return MatrixParserFactory
      */
-    public function __construct(ConfigInterface $config)
+    public function setConfig(ConfigInterface $config)
     {
         $this->config = $config;
+        return $this;
     }
 
     /**

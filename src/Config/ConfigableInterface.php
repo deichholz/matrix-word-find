@@ -6,7 +6,7 @@ namespace MatrixWordFind\Config;
 /**
  * Indicates that this class supports setting a ConfigInterface object
  * Interface ConfigableInterface
- * @package MatrixWordFind\Config
+ * @package App\Config
  */
 interface ConfigableInterface
 {
