@@ -6,10 +6,14 @@ use MatrixWordFind\Config\SimpleConfigFactory,
     MatrixWordFind\Spelling\SimpleWordCheckFactory,
     MatrixWordFind\Matrix\MatrixParserFactory,
     MatrixWordFind\Strings\StringParserFactory,
-    MatrixWordFind\Matrix\MatrixParser;
+    MatrixWordFind\Matrix\MatrixParser,
+    Exception,
+    Throwable;
 
 class App
 {
+    private $appRoot;
+
     /**
      * @var MatrixParserFactory $matrixFactory
      */
@@ -47,7 +51,7 @@ class App
 
         $simpleConfigFactory = new SimpleConfigFactory();
         $config = $simpleConfigFactory
-            ->setPath(__DIR__ . "/config.json")
+            ->setPath($this->appRoot . "/config.json")
             ->create();
 
         $wordCheckFactory = new SimpleWordCheckFactory();
@@ -85,4 +89,20 @@ class App
     {
         printf("\nException: \n%s. \nProcess did not complete successfully.\n\n", $e->getMessage());
     }
+
+    /**
+     * @param string $appRoot
+     * @return App
+     * @throws Exception
+     */
+    public function setAppRoot($appRoot)
+    {
+        if (false === realpath($appRoot)) {
+            throw new Exception(sprintf('Application Root %s is not a valid path.', $appRoot));
+        }
+        $this->appRoot = $appRoot;
+        return $this;
+    }
+
+
 }
