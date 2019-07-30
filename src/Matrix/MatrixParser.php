@@ -72,4 +72,14 @@ class MatrixParser
     {
         return array_map(null, ...$original);
     }
+
+    public function getMatrixAsStrings()
+    {
+        $matrix = '';
+        foreach ($this->matrix as $line) {
+            $matrix .= implode(' ', $line) . PHP_EOL;
+        }
+
+        return $matrix;
+    }
 }
