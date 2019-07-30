@@ -14,8 +14,11 @@ try {
         ->setPath($documentRoot . "/config.json")
         ->create();
 
-    $parserFactory = new MatrixWordFind\Matrix\MatrixParserFactory($config);
-    $parser = $parserFactory->create();
+    $wordCheckFactory = new MatrixWordFind\Spelling\SimpleWordCheckFactory();
+    $wordCheckFactory->setConfig($config);
+
+    $matrixFactory = new MatrixWordFind\Matrix\MatrixParserFactory($config);
+    $matrix = $matrixFactory->create();
 
     var_dump(file_get_contents('./matrix_data.txt'), $parser->getRowCollStrings());
     printf("\nProcess completed successfully.\n\n");
