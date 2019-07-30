@@ -6,5 +6,5 @@ namespace MatrixWordFind\Spelling;
 
 interface WordCheckInterface
 {
-    public function isValidWord($string);
+    public function isValidWord($chars);
 }

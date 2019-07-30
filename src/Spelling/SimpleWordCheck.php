@@ -28,17 +28,13 @@ class SimpleWordCheck implements WordCheckInterface
         return $this;
     }
 
-
     /**
      * Indicates whether provided string is a valid word.
-     * @param $string
+     * @param $chars
      * @return bool
      */
-    public function isValidWord($string): bool
+    public function isValidWord($chars): bool
     {
-        $isValid = in_array($string, $this->words);
-        printf("Testing: %s is %s\n", $string, $isValid ? 'CORRECT' : '');
-
-        return $isValid;
+        return in_array($chars, $this->words);
     }
 }
